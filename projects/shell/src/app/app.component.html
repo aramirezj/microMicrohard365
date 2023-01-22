@@ -2,7 +2,9 @@
 <ul>
   <li><img src="../assets/angular.png" width="50"></li>
   <li><a routerLink="/">Home</a></li>
-  <li><a routerLink="/worldpreso">Wordpreso</a></li>
-  <li><a routerLink="/exser">Exser</a></li>
+  <li *ngFor="let remote of remotes">
+    <a [routerLink]="remote.routePath">{{remote.displayName}}</a>
+  </li>
+
 </ul>
 <router-outlet></router-outlet>
