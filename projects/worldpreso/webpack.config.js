@@ -5,7 +5,7 @@ module.exports = withModuleFederationPlugin({
   name: 'worldpreso',
 
   exposes: {
-    './Component': './projects/worldpreso/src/app/app.component.ts',
+    './Module': './projects/worldpreso/src/app/worldpreso/worldpreso.module.ts',
   },
 
   shared: {
