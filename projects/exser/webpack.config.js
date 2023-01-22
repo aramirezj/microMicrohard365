@@ -5,7 +5,7 @@ module.exports = withModuleFederationPlugin({
   name: 'exser',
 
   exposes: {
-    './Component': './projects/exser/src/app/app.component.ts',
+    './Module': './projects/exser/src/app/exser/exser.module.ts',
   },
 
   shared: {
