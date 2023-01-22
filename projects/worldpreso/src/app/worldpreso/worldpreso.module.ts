@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'menu', loadComponent: () => import('./menu/menu.component') }
+  { path: '', loadComponent: () => import('./menu/menu.component') }
 ];
 
 @NgModule({
@@ -14,4 +14,4 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ]
 })
-export class WorldpresoModuleModule { }
+export class WorldpresoModule { }
