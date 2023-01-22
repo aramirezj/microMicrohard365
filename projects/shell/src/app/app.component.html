@@ -1,3 +1,10 @@
 <h1>SHELL</h1>
+<ul>
+  <li><img src="../assets/angular.png" width="50"></li>
+  <li><a routerLink="/">Home</a></li>
+  <li *ngFor="let remote of remotes">
+    <a [routerLink]="remote.routePath">{{remote.displayName}}</a>
+  </li>
 
+</ul>
 <router-outlet></router-outlet>

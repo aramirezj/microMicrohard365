@@ -1,10 +1,23 @@
+import { loadRemoteModule } from '@angular-architects/module-federation';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: 'worldpreso',
-    loadChildren:() => import('worldpreso/Module').then(m=>m.WorldpresoModule)
+    loadChildren: () => loadRemoteModule({
+      type: 'manifest',
+      remoteName: 'worldpreso',
+      exposedModule: './Module'
+    }).then(m=>m.WorldpresoModule)
+  },
+  {
+    path: 'exser',
+    loadChildren: () => loadRemoteModule({
+      type: 'manifest',
+      remoteName: 'exser',
+      exposedModule: './Module'
+    }).then(m=>m.ExserModule)
   }
 ];
 

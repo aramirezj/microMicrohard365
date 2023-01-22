@@ -1,0 +1,16 @@
+{
+	"worldpreso": {
+		"remoteEntry": "http://localhost:4201/remoteEntry.js",
+		"exposedModule": "./Module",
+		"displayName": "Worldpreso",
+		"routePath": "worldpreso",
+		"ngModuleName": "WorldpresoModule"
+	},
+	"exser": {
+		"remoteEntry": "http://localhost:4202/remoteEntry.js",
+		"exposedModule": "./Module",
+		"displayName": "Exser",
+		"routePath": "exser",
+		"ngModuleName": "ExserModule"
+	}
+}
