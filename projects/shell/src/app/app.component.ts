@@ -15,7 +15,9 @@ export class AppComponent implements OnInit {
   router: Router = inject(Router);
 
   async ngOnInit() {
-    const manifest = getManifest<CustomManifest>();
+    const manifest:CustomManifest = getManifest<CustomManifest>();
+    console.log(manifest)
+   
     // TODO: Move this to an APP_INITIALIZER
     const routes = buildRoutes(manifest);
     this.router.resetConfig(routes);

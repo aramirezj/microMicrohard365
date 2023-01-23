@@ -10,19 +10,23 @@ import { CustomManifest } from './config';
  * @returns Routes of the microApps
  */
 export function buildRoutes(options: CustomManifest): Routes {
+    Object.keys(options).forEach(option => {
+        if (options[option].typeExport === 'COMPONENT') delete options[option];
+    })
     const lazyRoutes: Routes = Object.keys(options).map(key => {
+
         const entry = options[key];
+
         return {
             path: entry.routePath,
             loadChildren: () =>
                 loadRemoteModule({
                     type: 'manifest',
                     remoteName: key,
-                    exposedModule: entry.exposedModule
+                    exposedModule: entry.exposed
                 })
-                    .then(m => m[entry.ngModuleName])
+                    .then(m => m[entry.titleName])
         }
     });
-
     return [...APP_ROUTES, ...lazyRoutes];
 }

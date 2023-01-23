@@ -1,16 +1,26 @@
 {
 	"worldpreso": {
 		"remoteEntry": "http://localhost:4201/remoteEntry.js",
-		"exposedModule": "./Module",
+		"exposed": "./Module",
 		"displayName": "Worldpreso",
 		"routePath": "worldpreso",
-		"ngModuleName": "WorldpresoModule"
+		"titleName": "WorldpresoModule",
+		"typeExport":"MODULE"
+	},
+	"menu": {
+		"remoteEntry": "http://localhost:4201/remoteEntry.js",
+		"exposed": "./Menu",
+		"displayName": "menu",
+		"routePath": "menu",
+		"titleName": "MenuComponent",
+		"typeExport":"COMPONENT"
 	},
 	"exser": {
 		"remoteEntry": "http://localhost:4202/remoteEntry.js",
-		"exposedModule": "./Module",
+		"exposed": "./Module",
 		"displayName": "Exser",
 		"routePath": "exser",
-		"ngModuleName": "ExserModule"
+		"titleName": "ExserModule",
+		"typeExport":"MODULE"
 	}
 }
