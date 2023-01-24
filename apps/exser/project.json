@@ -1,0 +1,110 @@
+{
+  "name": "exser",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/exser/src",
+  "prefix": "aramirezj",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/exser",
+        "index": "apps/exser/src/index.html",
+        "main": "apps/exser/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/exser/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/exser/src/favicon.ico", "apps/exser/src/assets"],
+        "styles": ["apps/exser/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/exser/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/exser/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "exser:build:production"
+        },
+        "development": {
+          "browserTarget": "exser:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4202,
+        "publicHost": "http://localhost:4202"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "exser:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/exser/**/*.ts", "apps/exser/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/exser/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/angular:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "exser:build",
+        "port": 4202
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "exser:build:development"
+        },
+        "production": {
+          "buildTarget": "exser:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}

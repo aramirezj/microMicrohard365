@@ -1,0 +1,26 @@
+{
+	"worldpreso": {
+		"remoteEntry": "http://localhost:4201/remoteEntry.js",
+		"exposed": "./Module",
+		"displayName": "Worldpreso",
+		"routePath": "worldpreso",
+		"titleName": "RemoteEntryModule",
+		"typeExport":"MODULE"
+	},
+	"button": {
+		"remoteEntry": "http://localhost:4201/remoteEntry.js",
+		"exposed": "./Button",
+		"displayName": "button",
+		"routePath": "button",
+		"titleName": "ButtonComponent",
+		"typeExport":"COMPONENT"
+	},
+	"exser": {
+		"remoteEntry": "http://localhost:4202/remoteEntry.js",
+		"exposed": "./Module",
+		"displayName": "Exser",
+		"routePath": "exser",
+		"titleName": "RemoteEntryModule",
+		"typeExport":"MODULE"
+	}
+}

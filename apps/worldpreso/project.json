@@ -1,0 +1,116 @@
+{
+  "name": "worldpreso",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/worldpreso/src",
+  "prefix": "aramirezj",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/worldpreso",
+        "index": "apps/worldpreso/src/index.html",
+        "main": "apps/worldpreso/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/worldpreso/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/worldpreso/src/favicon.ico",
+          "apps/worldpreso/src/assets"
+        ],
+        "styles": ["apps/worldpreso/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/worldpreso/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/worldpreso/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "worldpreso:build:production"
+        },
+        "development": {
+          "browserTarget": "worldpreso:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4201,
+        "publicHost": "http://localhost:4201"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "worldpreso:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/worldpreso/**/*.ts",
+          "apps/worldpreso/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/worldpreso/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/angular:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "worldpreso:build",
+        "port": 4201
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "worldpreso:build:development"
+        },
+        "production": {
+          "buildTarget": "worldpreso:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}

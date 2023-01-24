@@ -1,0 +1,13 @@
+<ul class="remote-menu">
+  <li><a routerLink="/">Home</a></li>
+  <li><a routerLink="worldpreso">Worldpreso</a></li>
+  <li><a routerLink="exser">Exser</a></li>
+</ul>
+<ng-container *ngFor="let p of workflow;let last = last">
+  <aramirezj-plugin-proxy [options]="p"></aramirezj-plugin-proxy>
+  <i *ngIf="!last">-></i>
+</ng-container>
+<div>
+  <a *ngFor="let p of plugins" (click)="add(p)" style="cursor: pointer;">Add {{p.displayName}}</a>
+</div>
+<router-outlet></router-outlet>
