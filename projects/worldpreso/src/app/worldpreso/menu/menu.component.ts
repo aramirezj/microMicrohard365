@@ -8,6 +8,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export default class MenuComponent {
+export class MenuComponent {
 
 }

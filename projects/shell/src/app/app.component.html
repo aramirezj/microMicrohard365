@@ -1,10 +1,16 @@
 <h1>SHELL</h1>
 <ul>
-  <li><img src="../assets/angular.png" width="50"></li>
   <li><a routerLink="/">Home</a></li>
   <li *ngFor="let remote of remotes">
     <a [routerLink]="remote.routePath">{{remote.displayName}}</a>
   </li>
 
 </ul>
+<ng-container *ngFor="let p of workflow;let last = last">
+  <app-plugin-proxy [options]="p"></app-plugin-proxy>
+  <i *ngIf="!last">-></i>
+</ng-container>
+<div>
+  <a *ngFor="let p of plugins" (click)="add(p)" style="cursor: pointer;">Add {{p.displayName}}</a>
+</div>
 <router-outlet></router-outlet>

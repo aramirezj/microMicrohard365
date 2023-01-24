@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', loadComponent: () => import('./menu/menu.component') }
+  { path: '', loadComponent: () => import('./menu/menu.component').then(m => m.MenuComponent) }
 ];
 
 @NgModule({

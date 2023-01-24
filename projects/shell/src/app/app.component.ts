@@ -1,7 +1,8 @@
 import { getManifest } from '@angular-architects/module-federation';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CustomManifest, CustomRemoteConfig } from './utils/config';
+import { LookUpService } from './look-up.service';
+import { CustomManifest, CustomRemoteConfig, PluginOptions } from './utils/config';
 import { buildRoutes } from './utils/routes';
 
 @Component({
@@ -14,10 +15,16 @@ export class AppComponent implements OnInit {
   remotes: CustomRemoteConfig[] = [];
   router: Router = inject(Router);
 
+  plugins: PluginOptions[] = [];
+  workflow: PluginOptions[] = [];
+  showConfig = false;
+
+  lookUpService: LookUpService = inject(LookUpService);
+
   async ngOnInit() {
-    const manifest:CustomManifest = getManifest<CustomManifest>();
-    console.log(manifest)
-   
+    const manifest: CustomManifest = getManifest<CustomManifest>();
+    this.plugins = this.lookUpService.lookup();
+
     // TODO: Move this to an APP_INITIALIZER
     const routes = buildRoutes(manifest);
     this.router.resetConfig(routes);
@@ -26,4 +33,15 @@ export class AppComponent implements OnInit {
 
 
   }
+
+  add(plugin: PluginOptions) {
+    console.log(plugin)
+    this.workflow.push(plugin);
+  }
+
+  toggle(){
+    this.showConfig = !this.showConfig;
+  }
+
+
 }
