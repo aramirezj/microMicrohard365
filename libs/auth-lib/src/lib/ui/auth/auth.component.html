@@ -1,0 +1,4 @@
+<p>Form of auth</p>
+
+<button (click)="authService.login('alejandro')" *ngIf="!authService.userName">Log in</button>
+<p *ngIf="authService.userName">Logado justo {{authService.userName}}</p>

@@ -11,6 +11,7 @@ module.exports = withModuleFederationPlugin({
   shared: {
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
   },
+  sharedMappings:['@aramirezj/auth-lib']
 
 });
 

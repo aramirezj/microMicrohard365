@@ -5,10 +5,11 @@ import { RouterModule } from '@angular/router';
 import { RemoteEntryComponent } from './entry.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { remoteRoutes } from './entry.routes';
+import { UserComponent } from '@aramirezj/auth-lib';
 
 @NgModule({
-  declarations: [RemoteEntryComponent, NxWelcomeComponent],
-  imports: [CommonModule, RouterModule.forChild(remoteRoutes)],
+  declarations: [RemoteEntryComponent, NxWelcomeComponent,],
+  imports: [CommonModule,UserComponent, RouterModule.forChild(remoteRoutes)],
   providers: [],
 })
 export class RemoteEntryModule {}

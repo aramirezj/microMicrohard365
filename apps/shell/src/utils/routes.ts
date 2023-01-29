@@ -11,7 +11,6 @@ import { CustomManifest } from './config';
  */
 export function buildRoutes(options: CustomManifest): Routes {
     Object.keys(options).forEach(option => {
-        console.log(options[option])
         if (options[option].typeExport === 'COMPONENT') delete options[option];
     })
     const lazyRoutes: Routes = Object.keys(options).map(key => {
