@@ -17,15 +17,13 @@ export class AppComponent implements OnInit {
   workflow: PluginOptions[] = [];
   router: Router = inject(Router);
   lookUpService: LookUpService = inject(LookUpService);
+  
 
   async ngOnInit() {
     const manifest: CustomManifest = getManifest<CustomManifest>();
-    console.log(manifest)
     this.plugins = this.lookUpService.lookup();
     const routes = buildRoutes(manifest);
-    console.log(routes)
     this.router.resetConfig(routes);
-    console.log(this.plugins)
   }
 
   add(plugin: PluginOptions) {

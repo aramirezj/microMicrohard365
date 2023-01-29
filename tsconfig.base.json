@@ -10,14 +10,21 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@aramirezj/common-ui": ["libs/common-ui/src/index.ts"],
-      "@aramirezj/products": ["libs/products/src/index.ts"]
+      "@aramirezj/auth-lib": [
+        "libs/auth-lib/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
