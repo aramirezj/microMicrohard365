@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "basicstart": "nx run-many --target serve --all"
+    "basicstart": "nx run-many --target serve --all",
+    "build": "nx run-many --target build --all",
+    "graph": "nx graph",
+    "graph-changes": "nx affected:graph"
   },
   "private": true,
   "dependencies": {
