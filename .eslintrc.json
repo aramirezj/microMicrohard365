@@ -13,8 +13,20 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "scope:shell",
+                "onlyDependOnLibsWithTags": ["scope:shell","scope:shared"]
+              },
+              {
+                "sourceTag": "scope:worldpreso",
+                "onlyDependOnLibsWithTags": ["scope:worldpreso","scope:shared"]
+              },
+              {
+                "sourceTag": "scope:exser",
+                "onlyDependOnLibsWithTags": ["scope:exser","scope:shared"]
+              },
+              {
+                "sourceTag": "scope:shared",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
               }
             ]
           }

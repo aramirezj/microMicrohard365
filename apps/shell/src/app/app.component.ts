@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { CustomManifest, PluginOptions } from '../utils/config';
 import { buildRoutes } from '../utils/routes';
 import { LookUpService } from './look-up.service';
-
 @Component({
   selector: 'aramirezj-root',
   templateUrl: './app.component.html',
@@ -17,7 +16,6 @@ export class AppComponent implements OnInit {
   workflow: PluginOptions[] = [];
   router: Router = inject(Router);
   lookUpService: LookUpService = inject(LookUpService);
-  
 
   async ngOnInit() {
     const manifest: CustomManifest = getManifest<CustomManifest>();
