@@ -11,7 +11,7 @@ import { LookUpService } from './look-up.service';
 })
 export class AppComponent implements OnInit {
   title = 'shell';
-
+  /** Standalone components */
   plugins: PluginOptions[] = [];
   workflow: PluginOptions[] = [];
   router: Router = inject(Router);
