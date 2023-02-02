@@ -5,7 +5,8 @@ module.exports = withModuleFederationPlugin({
   name: 'exser',
 
   exposes: {
-    './Module': 'apps/exser/src/app/remote-entry/entry.module.ts'
+    './Module': 'apps/exser/src/app/remote-entry/entry.module.ts',
+    './web-components': 'apps/exser/src/bootstrap.ts'
   },
 
   shared: {
